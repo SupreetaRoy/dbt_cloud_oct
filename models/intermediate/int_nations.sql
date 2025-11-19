@@ -15,7 +15,7 @@ with
        {% if is_incremental() %}
             where s.updated_at>
             coalesce((select max(updated_at) from {{ this }}), '1970-01-01')
-       {% endif %}
+       {% endif %}.
     )
 
 select * from nation
