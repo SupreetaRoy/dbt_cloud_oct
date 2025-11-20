@@ -1,4 +1,8 @@
-{{config(materialized='view')}}
+{{ config(tags = 'sample')}}
+
+{#pre_hook = 'use warehouse test_wh',
+post_hook = 'select * from ANALYTICS.DBT_SROY.STG_REGIONS'#}
+
 with customer as (
 select 
       c_custkey as customer_id,
@@ -12,4 +16,4 @@ select
     from {{ source('src','customers') }}
 )
 
-select * from customer limit 100
+select * from customer 

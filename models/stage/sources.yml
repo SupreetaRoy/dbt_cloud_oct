@@ -16,6 +16,7 @@ sources:
       - name: lineitems
       - name: parts
       - name: suppliers
+      - name: partsupps
 
   - name: mkmotors_src
     database: MKMOTORS_DEV
