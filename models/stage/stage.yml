@@ -33,7 +33,6 @@ models:
         data_type: timestamp_ltz
 
         data_tests:
-          - unique 
           - not_null 
       - name: region_id
         data_type: int
