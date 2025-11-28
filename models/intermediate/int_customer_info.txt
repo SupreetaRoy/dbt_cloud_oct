@@ -19,12 +19,12 @@ SELECT
     END AS Customer_Status
 
 FROM 
-    Analytics.dbt_bdr.stg_customer c
+    Analytics.dbt_sroy.stg_customers c
 JOIN 
-    Analytics.dbt_bdr.stg_orders o 
+    Analytics.dbt_sroy.stg_orders o 
     ON c.customer_id = o.customer_id
 JOIN 
-    Analytics.dbt_bdr.stg_line_items l 
+    Analytics.dbt_sroy.stg_line_items l 
     ON o.order_id = l.order_id
 GROUP BY 
     c.customer_id, 

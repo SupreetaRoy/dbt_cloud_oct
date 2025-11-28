@@ -2,7 +2,7 @@
 
 with source as (
     select *
-    from {{ source('mkmotors_src', 'stg_employees') }}
+    from {{ source('src_mkmotors', 'stg_employees') }}
 ),
 
 pang_out as (

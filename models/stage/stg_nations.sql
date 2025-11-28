@@ -1,13 +1,17 @@
-{{ config( 
-    alias= this.name+ var('v_id'),
-    access = 'public' )}}
+{{ config(
+    query_tag='TEST1',
+    alias =this.name+ var('v_id'),
+    access= 'public'
+) }}
 
 with nation as (select 
     n_nationkey as nation_id,
     n_name as name,
     n_regionkey as region_id,
-    current_timestamp() as updated_at,
+    updated_at,
     {{dbt_meta()}}
-from {{ source('src', 'nations') }}
-)
+
+from {{ source('src', 'nations') }})
+
+
 select * from nation
