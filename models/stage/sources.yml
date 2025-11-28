@@ -1,26 +1,45 @@
+version: 2
+
 sources:
   - name: src
     database: sourcedb
     schema: mk_mall
     tables:
       - name: customers
+
       - name: regions
+
       - name: nations
+        columns:
+          - name: nation_id
+            data_type: int
+            constraints:
+              - type: not_null
+
+          - name: name
+            data_type: string
+
+          - name: updated_at
+            data_type: timestamp
+            tests:
+              - not_null
+
       - name: nation_info
+
       - name: orders
         config:
-          freshness: # make this a little more strict
+          freshness:
             warn_after: {count: 10, period: day}
             error_after: {count: 10, period: day}
-          loaded_at_field: o_orderdate::timestamp_ntz
+        loaded_at_field: o_orderdate::timestamp_ntz
+
       - name: lineitems
       - name: parts
       - name: suppliers
       - name: partsupps
 
-  - name: mkmotors_src
+  - name: src_mkmotors
     database: MKMOTORS_DEV
     schema: STAGING
     tables:
       - name: stg_employees
-
