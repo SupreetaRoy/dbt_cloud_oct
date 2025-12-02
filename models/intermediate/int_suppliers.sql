@@ -55,7 +55,7 @@ final as (
     from suppliers s
     join nations n 
         on s.nation_id = n.nation_id
-    join regions r
+    join   regions r
         on n.region_id = r.region_id
 )
 

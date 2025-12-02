@@ -20,8 +20,11 @@ with
         updated_time
   
 
-        from {{ source("src", "suppliers") }} sc join {{ ref("suppliers") }} s on
-        sc.s_suppkey = s.SKey
+        -- from {{ source("src", "suppliers") }} sc join {{ ref("suppliers") }} s on
+        -- sc.s_suppkey = s.SKey
+        from {{ source("src", "suppliers") }} sc
+
+
     )
 
 select *
